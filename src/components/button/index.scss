@@ -1,0 +1,58 @@
+.su-button {
+    @include flex(row, center, center);
+    border-radius: 3px;
+    border-width: 1px;
+    font-size: $fs4;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+
+    &.su-button-text {
+        color: $tc1;
+        background-color: transparent;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: rgba($themeColor, $hoverOpacity);
+        }
+
+        &.su-button-activate{
+            background-color: rgba($themeColor, $hoverOpacity);
+        }
+    }
+
+    &.su-button-icon {
+        color: $tc1;
+        background-color: transparent;
+        border-radius: 100%;
+
+        &:hover {
+            background-color: rgba($themeColor, $hoverOpacity);
+        }
+
+        &.su-button-activate{
+            background-color: rgba($themeColor, $hoverOpacity);
+        }
+    }
+
+    &.su-button-contained {
+        background-color: $themeColor;
+        color: white;
+
+        &:hover {
+            color: $tc5;
+        }
+
+        &.su-button-disabled{
+            background-color: $disabledColor;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+
+
+
+ 
+}

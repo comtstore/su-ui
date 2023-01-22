@@ -1,0 +1,9 @@
+.su-file-tree {
+    min-width: 250px;
+    height: 100%;
+
+    &.su-file-tree__lighting {
+        background: rgba($tc6, 1);
+        border: .5px solid $themeColor;
+    }
+}

@@ -1,0 +1,50 @@
+.su-file-tree-node{
+    cursor: pointer;
+    position: relative;
+    .su-file-tree-node__root{
+        cursor: pointer;
+        padding: 0px 20px 0px 8px;
+        min-height: 35px;
+        border-radius: 5px;
+
+        @include flex(row,space-between,center);
+        &:hover{
+          background-color: #efefef;
+        }
+        .su-file-tree-node__content{
+            flex-grow: 1;
+            margin-left: 6px;
+            @include flex(row,flex-start,center);
+            .su-file-tree-node__label{
+                color: $tc3;
+                font-size: $fs3;
+                letter-spacing: 1px;
+                display: inherit;
+            }
+            .su-file-tree-node__prepend{
+                color: $tc3;
+                @include flex(row, center, center);
+                margin-right: 8px;
+            }
+            .su-file-tree-node__click{
+                color: $tc3;
+                @include flex(row, center, center);
+                &.su-file-tree-node__opened{
+                  transform: rotate(90deg);
+                  transition: transform .2s ease-in-out;
+                  will-change: transform;
+                }
+            }
+        }
+    }
+
+    .su-file-tree-node__active {
+        background: rgba($tc3, .1);
+        font-weight: 600;
+    }
+
+    &.su-file-tree-node__lighting{
+        background: rgba($tc6, 1);
+        border: .5px solid $themeColor;
+    }
+}

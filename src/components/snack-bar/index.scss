@@ -1,0 +1,11 @@
+.snack-bar-group {
+    width: 100%;
+    @include flex(column, center, center);
+    position: fixed;
+    top: 50px;
+    z-index: 1500;
+
+    .snack-bar-item{
+        margin-bottom: 10px;
+    }
+}
