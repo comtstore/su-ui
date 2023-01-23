@@ -18,7 +18,15 @@
 
 .snack-bar-item-alert-content {
     ul {
-        padding-left: 15px;
         margin: 0px;
+
+        li:only-child {
+           list-style: none;
+           margin-left: -40px;
+        }
+
+        li {
+            margin-left: -25px;
+        }
     }
 }

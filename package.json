@@ -1,6 +1,6 @@
 {
   "name": "@comtstore/su-ui",
-  "version": "1.0.1-alpha.4",
+  "version": "1.0.1-alpha.7",
   "description": "su ui package for react",
   "main": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run clean && node --experimental-json-modules ./node_modules/.bin/rollup --watch --config  ./build/rollup.config.dev.js",
     "build": "npm run clean && node --experimental-json-modules ./node_modules/.bin/rollup --config  ./build/rollup.config.prod.js",
+    "publish": "npm run build && npm publish --access public",
     "clean": "rimraf ./dist"
   },
   "homepage": "https://github.com/comtstore/su-ui",
