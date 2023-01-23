@@ -1,0 +1,48 @@
+{
+    "include":[
+      "./src/*",
+      "src/assets/icons/svg.d.ts",
+      "assets"    
+    ],
+    "exclude": [
+      "./build/*"
+    ],
+    "compilerOptions": {
+      "declaration": true,
+      "baseUrl": "./",
+      "jsx": "react",
+      "target": "ES2017",
+      "module": "ESNext",
+      "experimentalDecorators": true,
+      "useDefineForClassFields": true,
+      "moduleResolution": "node",
+      "allowJs": false,
+      "checkJs": false,
+      "removeComments": false,
+      "noEmit": false,
+      "noEmitOnError": false,
+      "sourceMap": true,
+      "strict": false,
+      "alwaysStrict": false,
+      "noImplicitAny": false,
+      "noImplicitThis": false,
+      "strictNullChecks": true,
+      "strictBindCallApply": false,
+      "strictFunctionTypes": false,
+      "strictPropertyInitialization": false,
+      "noFallthroughCasesInSwitch": false,
+      "noImplicitReturns": false,
+      "noUnusedLocals": false,
+      "esModuleInterop": true,
+      "noUnusedParameters": true,
+      "allowUnreachableCode": false,
+      "allowSyntheticDefaultImports": true,
+      "paths": {
+        "@components/*": [ "./src/components/*" ],
+        "@common/*": [ "./src/common/*" ],
+        "@managers/*": [ "./src/managers/*" ],
+        "_assets/*": [ "assets/*" ],
+        "assets/*": [ "assets/*" ]
+      }
+  }
+}

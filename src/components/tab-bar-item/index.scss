@@ -1,0 +1,85 @@
+$border: 1px solid white;
+$borderRadius: 5px;
+
+.su-tab-bar-item {
+    height: 100%;
+    position: relative;
+    width: fit-content;
+    padding: 5px 40px 5px 20px;
+    cursor: pointer;
+    background-color: rgba($tc5, .6);
+    border-right: $border;
+    border-bottom: $border;
+    @include flex(row, space-between, center);
+
+    &:hover {
+        background-color: rgba($tc5, .4);
+    }
+
+    &.su-tab-bar-item__active {
+        background-color: white;
+        border-bottom: none;
+        border-right: none;
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius: $borderRadius;
+
+        .su-tab-bar-item-label {
+            .first {
+                font-weight: bold;
+            }
+
+            .second {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &.su-tab-bar-item__active-before {
+        border-top-right-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+    }
+
+    &.su-tab-bar-item__active-after {
+        border-top-left-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
+        border-left: $border;
+    }
+
+    &:last-child {
+        border-right: none;
+    }
+
+    .su-tab-bar-item-label {
+        height: 100%;
+        width: 100%;
+        @include flex(row, center, center);
+
+        .icon {
+            @include flex(row, center, center);
+            margin-right: 5px;
+        }
+
+        .first {
+            white-space: nowrap;
+            color: $tc3;
+            letter-spacing: 1px;
+            font-size: $fs3;
+        }
+
+        .second {
+            white-space: nowrap;
+            margin-left: 10px;
+            letter-spacing: 1px;
+            font-size: $fs4;
+            color: $tc4;
+        }
+    }
+
+    .su-tab-bar-item-append {
+        position: absolute;
+        right: 5px;
+        color: $tc3;
+
+        @include flex(row, center, center);
+    }
+}
