@@ -27,6 +27,7 @@ function TabBar(props: PropsWithChildren<TabBarProps>){
                        active={props.active}
                        index={index}
                        item={tabItem}
+                       items={props.items}
                        itemKey={props.itemKey}
                        itemLabel={props.itemLabel}
                        itemSecondLabel={props.itemSecondLabel}

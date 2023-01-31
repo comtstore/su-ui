@@ -1,2 +1,4 @@
 .eslintrc.js
 ./tsconfig.json
+node_modules
+index.esm.js

@@ -6,22 +6,23 @@ const path = require('path')
 const { babel } = require('@rollup/plugin-babel')
 const commonjs = require('@rollup/plugin-commonjs')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
-const typescript = require('rollup-plugin-typescript2')
-const copy = require('rollup-plugin-copy')
+// const typescript = require('rollup-plugin-typescript2')
 const postcss = require('postcss')
+const postCssRollUpPlugin = require('rollup-plugin-postcss')
 const svgr = require('@svgr/rollup')
+// const copy = require('rollup-plugin-copy')
+const htmlTemplate = require('rollup-plugin-generate-html-template')
 const peerDepsExternal = require('rollup-plugin-peer-deps-external')
 
 const sass = require('rollup-plugin-sass')
 const alias = require('@rollup/plugin-alias')
 const scssVariable = require('rollup-plugin-sass-variables')
 const { parseObject2Array } = require('./utils.js')
-const exportJSToSassPlugin = require('./plugins/export-js-to-sass-plugin')
 const postCssPlugins = require('../postcss.config').plugins
 
-const GlobalStyles = require('../src/assets/styles')
+// const GlobalStyles = require('../src/assets/styles')
 
-const entry = './src/index.ts'
+const entry = './src/index.jsx'
 
 const aliasList = {
     '@components': path.resolve(__dirname, '../src/components'),
@@ -30,22 +31,23 @@ const aliasList = {
     '@common': path.resolve(__dirname, '../src/common'),
     '@managers': path.resolve(__dirname, '../src/managers'),
     '@assets': path.resolve(__dirname, "../src/assets"),
-    "@dist": path.resolve(__dirname, "../dist")
+    "@dist": path.resolve(__dirname, "../dist"),
+    "@ui": path.resolve(__dirname, "../src/ui/dist")
 }
 
-const stylesPath = path.resolve(__dirname, '../src/assets/styles')
-const distPath = path.resolve(__dirname, '../dist')
+// const stylesPath = path.resolve(__dirname, '../src/assets/styles')
+// // const distPath = path.resolve(__dirname, '../dist')
 
-const globalInsertStyles =  [
-    `@import "${stylesPath}/global.scss";`,
-    ...(Object.keys(GlobalStyles).map((key) => `$${key}: ${GlobalStyles[key]};`))
-].join('\n')
+// const globalInsertStyles =  [
+//     `@import "${stylesPath}/global.scss";`,
+//     ...(Object.keys(GlobalStyles).map((key) => `$${key}: ${GlobalStyles[key]};`))
+// ].join('\n')
 
 const sassConfig = {
     output: true,
-    options:{
-        data: globalInsertStyles
-    },
+    // options:{
+    //     data: globalInsertStyles
+    // },
     processor: (css) => postcss(postCssPlugins)
         .process(css, { from: undefined })
         .then(res => res.css)
@@ -53,17 +55,18 @@ const sassConfig = {
 
 const babelConfig = {
     babelHelpers: 'bundled',
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx'],
     exclude: [
         'node_modules/**'
     ],
+    configFile: path.resolve(__dirname, '../../.babelrc'),
     presets: ['@babel/preset-env', '@babel/preset-react', "@babel/preset-typescript"]
 }
 
 const basePlugins = [
     peerDepsExternal({
-        includeDependencies: true
-    }), //自动将package.json的peerDependencies作为external
+        includeDependencies: false
+    }),
     alias({
         entries: parseObject2Array(aliasList, 'find', 'replacement')
     }),
@@ -75,34 +78,14 @@ const basePlugins = [
     }),
     svgr(),
     eslint(),
-    typescript({
-        check: false,
-        exclude: [ 'node_modules/**', /.scss$/ ],
-        include: 'src/**'
-    }),
+    postCssRollUpPlugin(),
     sass(sassConfig),
     commonjs(),
     babel(babelConfig),
-    copy({
-        targets: [
-            { src: 'src/assets/', dest: 'dist/' }
-        ]
-    }),
-    copy({
-        targets: [
-            { src: 'dist/', dest: 'example/src/ui/' }
-        ],
-        hook: 'writeBundle'
-    }),
-    exportJSToSassPlugin({
-        targets: [
-            `${stylesPath}/box-shadow.js`,
-            `${stylesPath}/font-size.js`,
-            `${stylesPath}/text-color.js`,
-            `${stylesPath}/theme.js`
-        ],
-        output: `${distPath}/assets/styles/globalVariables.scss`
-    })
+    htmlTemplate({
+        template: 'public/index.html',
+        target: 'dist/index.html',
+	})
 ]
 
 const baseOutput = [

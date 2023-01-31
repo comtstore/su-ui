@@ -6,7 +6,7 @@
     ],
     "exclude": [
       "./build/*",
-      "./dist/*"
+      "index.esm.js"
     ],
     "compilerOptions": {
       "declaration": true,
@@ -39,6 +39,7 @@
       "allowUnreachableCode": false,
       "allowSyntheticDefaultImports": true,
       "paths": {
+        "@ui/*": [ "./src/ui/dist/*" ],
         "@src/*": [ "./src/*" ],
         "@dist/*": [ "./dist/*" ],
         "@doc/*": [ "doc/*" ],
@@ -46,7 +47,8 @@
         "@common/*": [ "./src/common/*" ],
         "@managers/*": [ "./src/managers/*" ],
         "_assets/*": [ "assets/*" ],
-        "assets/*": [ "assets/*" ]
+        "assets/*": [ "assets/*" ],
+        "@assets/*": [ "assets/*" ]
       }
   }
 }

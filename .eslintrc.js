@@ -28,5 +28,6 @@ module.exports = {
         "react/prop-types": [ "off" ],
     },
     // 用于配置在某些文件中的规则检查
-    overrides: []
+    overrides: [],
+    ignorePatterns: [ "example/**/*", "dist/**/*" ]
 } 

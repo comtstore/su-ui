@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect } from 'react'
+import React, { PropsWithChildren, useEffect, useState } from 'react'
 import cx from 'classnames'
 import { ButtonProps } from './interface'
 import ButtonController from './controller'
@@ -7,7 +7,7 @@ import { useObserver } from 'mobx-react'
 
 function Button(props: PropsWithChildren<ButtonProps>){
     const ref: any = React.createRef()
-    const controller = new ButtonController(props, ref)
+    const [ controller ] =  useState(() => new ButtonController(props, ref))
 
     useEffect(() => {
         ['click', 'touchstart'].forEach(eventname => {

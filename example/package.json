@@ -3,10 +3,8 @@
   "version": "1.0.1-alpha.15",
   "description": "su ui package for react",
   "main": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "example": "cd example && npm run dev",
     "dev": "npm run clean && node --experimental-json-modules ./node_modules/.bin/rollup --watch --config ./build/rollup.config.dev.js",
     "build": "npm run clean && node --experimental-json-modules ./node_modules/.bin/rollup --config ./build/rollup.config.prod.js",
     "pub": "npm publish --access public",
@@ -53,6 +51,7 @@
     "rollup": "^3.2.3",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-generate-html-template": "^1.7.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^3.1.8",

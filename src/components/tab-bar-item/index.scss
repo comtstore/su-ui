@@ -2,14 +2,15 @@ $border: 1px solid white;
 $borderRadius: 5px;
 
 .su-tab-bar-item {
-    height: 100%;
     position: relative;
-    width: fit-content;
-    padding: 5px 40px 5px 20px;
     cursor: pointer;
     background-color: rgba($tc5, .6);
+    padding: 5px;
     border-right: $border;
     border-bottom: $border;
+    border-top: $border;
+    height: 100%;
+    width: fit-content;
     @include flex(row, space-between, center);
 
     &:hover {
@@ -18,10 +19,7 @@ $borderRadius: 5px;
 
     &.su-tab-bar-item__active {
         background-color: white;
-        border-bottom: none;
-        border-right: none;
-        border-top-left-radius: $borderRadius;
-        border-top-right-radius: $borderRadius;
+        border-radius: $borderRadius;
 
         .su-tab-bar-item-label {
             .first {
@@ -46,7 +44,14 @@ $borderRadius: 5px;
     }
 
     &:last-child {
-        border-right: none;
+        border-top-right-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+    }
+
+    &:first-child {
+        border-left: $border;
+        border-top-left-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
     }
 
     .su-tab-bar-item-label {

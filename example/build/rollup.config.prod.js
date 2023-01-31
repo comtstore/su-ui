@@ -9,7 +9,6 @@ module.exports = [
             ...baseOutput
         ],
         plugins: [
-
             ...basePlugins,
             terser({
                 format: {

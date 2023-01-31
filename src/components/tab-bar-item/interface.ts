@@ -17,6 +17,10 @@ export interface TabBarItemProps extends ComponentProps{
      */
     item: TabBarItemConfig,
     /**
+     * tab data list
+     */
+    items: Array<TabBarItemConfig>,
+    /**
      * key 字段
      */
     itemKey: string,
@@ -31,7 +35,7 @@ export interface TabBarItemProps extends ComponentProps{
     /**
      * 元素的位序
      */
-    index: number
+    index: number,
     /**
     * 头部的icon
     */

@@ -2,6 +2,7 @@
 const { baseConfig, baseOutput, basePlugins } = require('./rollup.config.base.js')
 const serve = require('rollup-plugin-serve')
 const livereload = require('rollup-plugin-livereload')
+const replace = require('@rollup/plugin-replace')
 
 module.exports =  [
     {
@@ -11,13 +12,19 @@ module.exports =  [
         ],
         plugins: [
             ...basePlugins,
+            replace({
+                values: {
+                    'process.env.NODE_ENV': '"development"'
+                },
+                preventAssignment: true
+            }),
             serve({
-                contentBase: '',
+                contentBase: 'dist',
                 verbose: true,
-                port: 8090
+                port: 8900
             }),
             livereload({
-                watch: 'dist'
+                watch: [ 'dist' ]
             })
         ]
     },
