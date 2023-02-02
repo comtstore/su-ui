@@ -1,11 +1,33 @@
 .su-button {
     @include flex(row, center, center);
     border-radius: 3px;
-    border-width: 1px;
     font-size: $fs4;
     padding: 5px 10px;
     cursor: pointer;
     border: none;
+
+    &.su-button-small {
+        font-size: $fs5;
+    }
+
+    &.su-button-medium {
+        font-size: $fs4;
+    }
+
+    &.su-button-large {
+        font-size: $fs3;
+    }
+
+    &.su-button-outlined {
+        $color: $tc5;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $color;
+        background-color: $color;
+        &:hover {
+            border-color: $themeColor;
+        }
+    }
 
     &.su-button-text {
         color: $tc1;

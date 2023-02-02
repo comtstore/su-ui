@@ -28,6 +28,7 @@ function Button(props: PropsWithChildren<ButtonProps>){
                 cx(
                     'su-button',
                     'su-button-' + (props.type ?? 'contained'),
+                    'su-button-' + (props.size ?? 'medium'),
                     {
                         'su-button-block': props.block,
                         'su-button-activate': controller.isTriggerred,

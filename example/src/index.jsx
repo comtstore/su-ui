@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom';
 import GeneralIcon from '@assets/icons/general.svg'
 import { MenuList } from '@ui/index.esm.js'
+import ComponentDetail from './components/component-detail/index.jsx'
 import './index.scss'
 
 function Root(){
@@ -43,6 +44,7 @@ function Root(){
     ])
 
     const onItemClick = (item) => {
+        console.log("🚀 ~ file: index.jsx:47 ~ onItemClick ~ item", item)
         setActive(item)
     }
 
@@ -54,6 +56,7 @@ function Root(){
            itemKey={'name'}
            itemLabel={'name'}
         />
+        <ComponentDetail active={active}/>
     </div>
 }
 

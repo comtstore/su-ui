@@ -43,23 +43,21 @@ function TopBar(props: TopBarProps){
     }
 
     const renderHeaderRight = (): React.ReactNode => {
-        let headerRight: Array<React.ReactNode> | null = null
-        if(props.tools){
-            headerRight = props.tools.map((toolItem: ToolItem, index: number) => {
-                if(toolItem.hidden) return
-                return (
-                    <div 
-                        key={toolItem.key ?? index}
-                        className="header-right-item" 
-                    >
-                        {toolItem.content}
-                    </div>
-                )
-            })
-        }
         return (
             <div className="header-right">
-                {headerRight}
+                {
+                    props.tools ? props.tools.map((toolItem: ToolItem, index: number) => {
+                        if(toolItem.hidden) return
+                        return (
+                            <div
+                                key={toolItem.key ?? index}
+                                className="header-right-item"
+                            >
+                                {toolItem.content}
+                            </div>
+                        )
+                    }) : null
+                }
             </div>
         )
     }
