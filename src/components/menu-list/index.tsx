@@ -26,7 +26,9 @@ function MenuList(props: MenuListProps){
                             >  
                             </div>
                         )
-                    }else {
+                    } else if(menuListItem.hide?.()) {
+                        return null
+                    } else {
                         return (
                             <div
                                 className={

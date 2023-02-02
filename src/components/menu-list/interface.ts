@@ -7,6 +7,7 @@ type TIcon = any
 export interface MenuListItem {
     name?: string,
     icon?: TIcon,
+    hide?: () => boolean,
     append?: Component,
     /**
      * 是否是空白
