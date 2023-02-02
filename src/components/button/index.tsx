@@ -45,8 +45,12 @@ function Button(props: PropsWithChildren<ButtonProps>){
             }}
             onClick={props.onClick}
             onTouchStart={props.onTouchStart}
+            onMouseOver={controller.onMouseOver}
+            onMouseLeave={controller.onMouseLeave}
         >
-            {props.children}
+            {
+                controller.isShowContent ? props.children : null
+            }
         </button>
     ))  
 }

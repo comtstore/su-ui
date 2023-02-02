@@ -1,3 +1,5 @@
 .root-container {
-    height: 300px;
+    height: 100vh;
+    color: $tc3;
+    @include flex(row, flex-start, flex-start);
 }

@@ -25,6 +25,7 @@
         color: $tc1;
         background-color: transparent;
         border-radius: 100%;
+        padding: 1px;
 
         &:hover {
             background-color: rgba($themeColor, $hoverOpacity);
@@ -51,8 +52,4 @@
             }
         }
     }
-
-
-
- 
 }

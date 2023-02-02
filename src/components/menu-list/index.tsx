@@ -10,10 +10,9 @@ function MenuList(props: MenuListProps){
 
     return (
         <div 
-            className="su-menu-list"
-            style={{
-                width: props.width ?? 150
-            }}
+            className={
+                cx('su-menu-list', props.className, props.classes?.root)
+            }
         >
             {
                 props.items.map((menuListItem: MenuListItem, index: number) => {
@@ -38,7 +37,7 @@ function MenuList(props: MenuListProps){
                                             (props.active === menuListItem || 
                                             (
                                                 props.active instanceof Array &&
-                                                props.active.includes(menuListItem)
+                                                props.active.findIndex(item => item[props.itemKey] === menuListItem[props.itemKey]) !== -1
                                             ))
                                         }
                                     )
@@ -46,8 +45,8 @@ function MenuList(props: MenuListProps){
                                 key={'item-' + index}
                                 onClick={() => controller.onItemClick(menuListItem)}
                             >
-                                <div className="su-menu-list-item-icon">{ menuListItem.icon }</div>
-                                <div className="su-menu-list-item-name">{ menuListItem.name }</div>
+                                <div className="su-menu-list-item-icon">{ props.iconComponent ? props.iconComponent(menuListItem.icon) : menuListItem.icon }</div>
+                                <div className="su-menu-list-item-name">{ menuListItem[props.itemLabel ?? props.itemKey] }</div>
                             </div>
                         )
                     }

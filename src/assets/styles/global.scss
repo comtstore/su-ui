@@ -14,4 +14,10 @@
     &::-webkit-scrollbar {
       display: none; /* Chrome Safari */
     }
- }
+}
+
+@mixin blur($degree: 10px){
+  backdrop-filter: blur($degree);
+  -webkit-backdrop-filter: blur($degree);
+}
+

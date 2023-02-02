@@ -1,19 +1,16 @@
-@mixin active(){
-    background-color: $themeColor;
-}
-
 .su-menu-list {
-    background-color: $tc3;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     height: 100%;
     padding: 0px 10px;
+    box-sizing: border-box;
     @include scroll();
+    @include blur();
 
     .su-menu-list-item {
+        color: $tc3;
         width: 100%;
-        color: white;
-        min-height: 35px;
+        min-height: 30px;
         cursor: pointer;
         padding: 0px 10px;
         box-sizing: border-box;
@@ -21,11 +18,12 @@
         @include flex(row, flex-start, center);
 
         &:hover {
-            @include active();
+            background-color: rgba($tc3, .1);
         }
 
         &.su-menu-list-item__active {
-            @include active();
+            color: white;
+            background-color: $themeColor;
         }
 
         .su-menu-list-item-icon {
@@ -34,10 +32,9 @@
         }
 
         .su-menu-list-item-name {
-
+            font-size: 15px;
         }
     }
-
 
     .su-menu-list-blank {
         width: 100%;

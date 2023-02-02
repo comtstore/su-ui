@@ -5,12 +5,13 @@ const json = require('@rollup/plugin-json')
 const path = require('path')
 const { babel } = require('@rollup/plugin-babel')
 const commonjs = require('@rollup/plugin-commonjs')
-const { nodeResolve } = require('@rollup/plugin-node-resolve')
+const resolve = require('@rollup/plugin-node-resolve')
+const nodeResolve = resolve.nodeResolve
 // const typescript = require('rollup-plugin-typescript2')
 const postcss = require('postcss')
 const postCssRollUpPlugin = require('rollup-plugin-postcss')
 const svgr = require('@svgr/rollup')
-// const copy = require('rollup-plugin-copy')
+const copy = require('rollup-plugin-copy')
 const htmlTemplate = require('rollup-plugin-generate-html-template')
 const peerDepsExternal = require('rollup-plugin-peer-deps-external')
 
@@ -20,37 +21,35 @@ const scssVariable = require('rollup-plugin-sass-variables')
 const { parseObject2Array } = require('./utils.js')
 const postCssPlugins = require('../postcss.config').plugins
 
-// const GlobalStyles = require('../src/assets/styles')
-
 const entry = './src/index.jsx'
 
 const aliasList = {
     '@components': path.resolve(__dirname, '../src/components'),
-    '@doc/*': path.resolve(__dirname, '../src/doc/*'),
     '@src': path.resolve(__dirname, '../src'),
-    '@common': path.resolve(__dirname, '../src/common'),
-    '@managers': path.resolve(__dirname, '../src/managers'),
     '@assets': path.resolve(__dirname, "../src/assets"),
     "@dist": path.resolve(__dirname, "../dist"),
     "@ui": path.resolve(__dirname, "../src/ui/dist")
 }
 
-// const stylesPath = path.resolve(__dirname, '../src/assets/styles')
+const stylesPath = path.resolve(__dirname, '../src/ui/dist/assets/styles')
 // // const distPath = path.resolve(__dirname, '../dist')
 
-// const globalInsertStyles =  [
-//     `@import "${stylesPath}/global.scss";`,
-//     ...(Object.keys(GlobalStyles).map((key) => `$${key}: ${GlobalStyles[key]};`))
-// ].join('\n')
+const globalInsertStyles = `
+@import "${aliasList["@ui"]}/assets/styles/global.scss";
+@import "${aliasList["@ui"]}/assets/styles/globalVariables.scss";
+
+`
 
 const sassConfig = {
     output: true,
-    // options:{
-    //     data: globalInsertStyles
-    // },
-    processor: (css) => postcss(postCssPlugins)
+    options:{
+        data: globalInsertStyles
+    },
+    processor: (css) => {
+        return postcss(postCssPlugins)
         .process(css, { from: undefined })
         .then(res => res.css)
+    }
 }
 
 const babelConfig = {
@@ -78,14 +77,19 @@ const basePlugins = [
     }),
     svgr(),
     eslint(),
-    postCssRollUpPlugin(),
+    // postCssRollUpPlugin(),
     sass(sassConfig),
     commonjs(),
     babel(babelConfig),
     htmlTemplate({
         template: 'public/index.html',
         target: 'dist/index.html',
-	})
+	}),
+    copy({
+        targets: [
+            { src: 'src/ui/dist/index.esm.css', dest: 'dist/', rename: 'ui.esm.css' }
+        ]
+    }),
 ]
 
 const baseOutput = [

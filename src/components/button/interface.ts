@@ -8,6 +8,10 @@ export interface ButtonProps extends ComponentProps{
      */
     type?: 'text' | 'outlined' | 'contained' | 'icon',
     /**
+     * 只在hover时展示内容
+     */
+    onlyShowContentOnHover?: boolean,
+    /**
      * 占满全部宽度
      */
     block?: boolean,
