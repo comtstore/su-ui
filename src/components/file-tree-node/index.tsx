@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useState } from "react"
+import React, { PropsWithChildren, useEffect, useState } from "react"
 import { useObserver } from "mobx-react"
 import { FileTreeNodeProps, FileTreeOperartion } from './interface'
 import FileTreeNodeController from './controller'
@@ -13,6 +13,11 @@ import './index.scss'
 
 function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
     const [ controller ] = useState(() => new FileTreeNodeController(props))
+
+    useEffect(() => {
+        props.onMounted?.(props.item)
+    }, [])
+
     const renderdefaultPrependComponent = () => {
         return (
             <>
@@ -142,6 +147,7 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
                         labelComponent={props.labelComponent}   
                         onTreeNodeClick={props.onTreeNodeClick}
                         onContextMenu={props.onContextMenu}
+                        onMounted={props.onMounted}
                         onDragstart={props.onDragstart}
                         onDragover={props.onDragover}
                         onDragleave={props.onDragleave}

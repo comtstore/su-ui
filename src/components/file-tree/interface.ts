@@ -102,7 +102,11 @@ export interface FileTreeProps extends ComponentProps{
     /**
      * node-contextmenu
      */
-    onNodeContextmenu?: () => void
+    onNodeContextmenu?: () => void,
+    /**
+     * 节点加载后的回调
+     */
+    onNodeMounted?: (item) => void,
     /**
      * dragstart
      */

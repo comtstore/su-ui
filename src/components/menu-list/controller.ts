@@ -1,5 +1,4 @@
-import { TabBarItemConfig } from '@components/tab-bar-item/interface'
-import { action, makeObservable, observable } from 'mobx'
+import { action, makeObservable } from 'mobx'
 import { baseController } from '../../common/common.interface'
 import { MenuListProps, MenuListItem } from "./interface"
 

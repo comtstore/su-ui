@@ -110,6 +110,10 @@ export interface FileTreeNodeProps extends ComponentProps{
      */
     onContextMenu?: ({ e, item }) => void,
     /**
+     * 节点加载后的回调
+     */
+    onMounted?: (item) => void,
+    /**
      * dragstart
     */
     onDragstart?: ({
