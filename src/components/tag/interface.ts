@@ -9,5 +9,5 @@ export interface TagProps extends ComponentProps{
     /**
      * label
      */
-    label: string
+    label?: string
 }
