@@ -7,6 +7,7 @@ import FileTree from '@components/file-tree'
 import TabBar from '@components/tab-bar'
 import DraggleBar from '@components/draggle-bar'
 import MenuList from '@components/menu-list'
+import Tag from '@components/tag'
 import * as TopBarClasses from '@components/top-bar/interface'
 
 // 组件组
@@ -20,5 +21,6 @@ export {
     TabBar,
     DraggleBar,
     MenuList,
+    Tag,
     TopBarClasses
 }

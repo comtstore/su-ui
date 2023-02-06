@@ -1,0 +1,11 @@
+.su-tag {
+    border-radius: 5px;
+    box-shadow: $bx5;
+    padding: 0px 5px;
+    @include flex(row, center, center);
+
+    .su-tag-name {
+        margin-left: 5px;
+        font-size: $fs5;
+    }
+}
