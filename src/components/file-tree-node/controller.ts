@@ -1,6 +1,6 @@
 import { FileTreeItem, FileTreeNodeProps, FileTreeOperartion } from "./interface";
 import { baseController} from '../../common/common.interface'
-import { action, computed, makeObservable, observable } from 'mobx'
+import { computed, makeObservable, observable } from 'mobx'
 
 class FileTreeNodeController extends baseController<FileTreeNodeProps>{
 
