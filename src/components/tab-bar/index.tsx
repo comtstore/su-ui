@@ -33,6 +33,7 @@ function TabBar(props: PropsWithChildren<TabBarProps>){
                        itemSecondLabel={props.itemSecondLabel}
                        appendComponent={props.appendComponent}
                        prependComponent={props.prependComponent}
+                       labelComponent={props.labelComponent}
                        onClick={(e) => controller.onTabClick(e, tabItem)}
                     ></TabBarItem>
                 ))

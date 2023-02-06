@@ -52,6 +52,15 @@ export interface TabBarItemProps extends ComponentProps{
         controller: TabBarItemController
     }) => JSX.Element,
     /**
+     * label组件
+     * @param data
+     * @returns 
+     */
+    labelComponent?: (data: {
+        item: TabBarItemConfig,
+        index: number
+    }) => JSX.Element,
+    /**
      * tab按下的事件
      * @returns 
      */
