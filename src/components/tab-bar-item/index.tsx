@@ -45,11 +45,12 @@ function TabBarItem(props: TabBarItemProps){
                   </div>
                 ) : null
               }
-              { props.itemLabel ? <span className='first'>{ props.item[props.itemLabel] }</span> : (
+              { props.itemLabel ? <span className='first'>{ props.item[props.itemLabel] }</span> : null }
+              {
                 props.labelComponent ?
                 props.labelComponent?.({ item: props.item, index: props.index })
                 : null
-              )}
+              }
               { props.itemSecondLabel ? <span className='second'>{ 
                typeof props.itemSecondLabel === 'string' ?
                props.item[props.itemSecondLabel] : 
