@@ -121,41 +121,45 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
         )
     }
 
-    const renderChildrenNodes = () => {
+    const renderChildrenNodes = (items) => {
         return (
-            <div>
+            <>
             {
-                props.item[controller.itemChildren].map((
+                items.map((
                     childFileNode,
-                    index: number) => (
-                    <FileTreeNode
-                        key={
-                            props.itemKey ? 
-                            childFileNode[props.itemKey]
-                            : index
+                    index: number) => {
+                        if(childFileNode instanceof Array){
+                            return renderChildrenNodes(childFileNode)
                         }
-                        item={childFileNode}
-                        level={controller.level + 1}
-                        itemLabel={controller.itemLabel}
-                        active={controller.active}
-                        open={controller.open}
-                        disabled={controller.disabled}
-                        disableLeaf={controller.disableLeaf}
-                        classes={props.classes}
-                        disabledOperation={props.disabledOperation}
-                        prependComponent={props.prependComponent}    
-                        labelComponent={props.labelComponent}   
-                        onTreeNodeClick={props.onTreeNodeClick}
-                        onContextMenu={props.onContextMenu}
-                        onMounted={props.onMounted}
-                        onDragstart={props.onDragstart}
-                        onDragover={props.onDragover}
-                        onDragleave={props.onDragleave}
-                        onDrop={props.onDrop}
-                    ></FileTreeNode>
-                ))
+                        return (<FileTreeNode
+                            key={
+                                props.itemKey ? 
+                                childFileNode[props.itemKey]
+                                : index
+                            }
+                            item={childFileNode}
+                            level={controller.level + 1}
+                            itemLabel={controller.itemLabel}
+                            active={controller.active}
+                            open={controller.open}
+                            disabled={controller.disabled}
+                            disableLeaf={controller.disableLeaf}
+                            classes={props.classes}
+                            disabledOperation={props.disabledOperation}
+                            prependComponent={props.prependComponent}    
+                            labelComponent={props.labelComponent}   
+                            onTreeNodeClick={props.onTreeNodeClick}
+                            onContextMenu={props.onContextMenu}
+                            onMounted={props.onMounted}
+                            onDragstart={props.onDragstart}
+                            onDragover={props.onDragover}
+                            onDragleave={props.onDragleave}
+                            onDrop={props.onDrop}
+                        ></FileTreeNode>)
+                    }
+                )
             }
-            </div>
+            </>
         )
     }
 
@@ -176,7 +180,9 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
             {
                 props.item[controller.itemChildren] && 
                 props.item[controller.itemChildren].length &&
-                controller.isOpen ? renderChildrenNodes() : null
+                controller.isOpen ? (<div>{
+                    renderChildrenNodes(props.item[controller.itemChildren])
+                }</div>) : null
             }
         </div>
     ))
