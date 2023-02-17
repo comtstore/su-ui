@@ -8,7 +8,7 @@ export interface StatusTipItemConfig {
     /**
      * 处于该状态时所使用的颜色
      */
-    color: string,
+    color?: string,
     /**
      * 状态描述，在末尾用于指示当前状态给予的信息
      */
