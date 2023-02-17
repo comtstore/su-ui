@@ -1,4 +1,5 @@
 import React from "react"
+import { ComponentProps } from '../../common/common.interface'
 
 export interface StatusTipItemConfig {
     /**
@@ -27,7 +28,7 @@ export interface StatusTipItemConfig {
     custom?: JSX.Element | React.Component
 }
 
-export interface StatusTipProps {
+export interface StatusTipProps extends ComponentProps {
     /**
      * 当前所处于的状态
      */

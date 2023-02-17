@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './index.scss'
 import { StatusTipItemConfig, StatusTipProps } from './interface'
 import RoundIcon from '../../assets/icons/round.svg'
+import cx from 'classnames'
 
 function StatusTip(props: StatusTipProps){
         const [ isShowDesc, setIsShowDesc ] = useState(true)
@@ -36,7 +37,11 @@ function StatusTip(props: StatusTipProps){
                     {
                         props.status === item.name && !item.hidden ? (
                             <div
-                                className='status-tip-item'
+                                className={
+                                    cx('status-tip-item',
+                                       props.className, 
+                                       props.classes?.root)
+                                }
                                 key={item.name}
                             >
                                 <>{
