@@ -43,15 +43,30 @@ function StatusTip(props: StatusTipProps){
                                        props.classes?.root)
                                 }
                                 key={item.name}
+                                style={{
+                                    ...props.style,
+                                    ...props.styles?.root
+                                }}
                             >
                                 <>{
-                                    item.custom ? item.custom : <RoundIcon width="14px" height="14px" color={item.color} />
+                                    item.custom ? item.custom : <RoundIcon 
+                                        width="14px" 
+                                        height="14px" 
+                                        color={item.color}
+                                        style={props.styles?.icon}
+                                    />
                                 }</>
                                 <>{
                                     item.desc && isShowDesc ? <span
-                                        className='desc'
+                                        className={
+                                            cx(
+                                                'desc',
+                                                props.classes?.desc
+                                            )
+                                        }
                                         style={{
-                                            color: item.color
+                                            color: item.color,
+                                            ...props.styles?.desc
                                         }}
                                     >{ item.desc }</span> : null
                                 }</>
