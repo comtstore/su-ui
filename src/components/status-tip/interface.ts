@@ -1,3 +1,5 @@
+import React from "react"
+
 export interface StatusTipItemConfig {
     /**
      * 状态名
@@ -18,7 +20,11 @@ export interface StatusTipItemConfig {
     /**
      * 处于该状态时隐藏
      */
-    hidden?: boolean
+    hidden?: boolean,
+    /**
+     * 自定义显示内容
+     */
+    custom?: JSX.Element | React.Component
 }
 
 export interface StatusTipProps {

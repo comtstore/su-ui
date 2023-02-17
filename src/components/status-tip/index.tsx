@@ -39,15 +39,17 @@ function StatusTip(props: StatusTipProps){
                                 className='status-tip-item'
                                 key={item.name}
                             >
-                                <RoundIcon width="14px" height="14px" color={item.color}></RoundIcon>
-                                {
+                                <>{
+                                    item.custom ? item.custom : <RoundIcon width="14px" height="14px" color={item.color} />
+                                }</>
+                                <>{
                                     item.desc && isShowDesc ? <span
                                         className='desc'
                                         style={{
                                             color: item.color
                                         }}
                                     >{ item.desc }</span> : null
-                                }
+                                }</>
                             </div>
                         ) : null
                     }
