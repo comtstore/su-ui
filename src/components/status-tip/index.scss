@@ -1,0 +1,8 @@
+.status-tip-item {
+    @include flex(row, center, center);
+
+    .desc {
+        font-size: $fs5;
+        margin-left: 5px;
+    }
+}

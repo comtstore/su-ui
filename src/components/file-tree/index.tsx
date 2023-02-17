@@ -20,28 +20,28 @@ function FileTree(props: PropsWithChildren<FileTreeProps>){
                     }
                     return (
                         <FileTreeNode
-                        key={
-                            props.itemKey ? 
-                            childFileNode[props.itemKey] 
-                            : index
-                        }
-                        item={childFileNode}
-                        itemLabel={props.itemLabel}
-                        active={props.active}
-                        open={props.open}
-                        disabled={props.disabled}
-                        disableLeaf={props.disableLeaf}
-                        classes={props.classes}
-                        prependComponent={props.prependComponent}    
-                        labelComponent={props.labelComponent}    
-                        disabledOperation={props.disabledOperation}
-                        onTreeNodeClick={props.onTreeNodeClick}  
-                        onContextMenu={props.onContextMenu}
-                        onMounted={props.onNodeMounted}
-                        onDragstart={props.onDragstart}
-                        onDragover={props.onDragover}
-                        onDragleave={props.onDragleave}
-                        onDrop={props.onDrop}
+                            key={
+                                props.itemKey ? 
+                                childFileNode[props.itemKey] 
+                                : index
+                            }
+                            item={childFileNode}
+                            itemLabel={props.itemLabel}
+                            active={props.active}
+                            open={props.open}
+                            disabled={props.disabled}
+                            disableLeaf={props.disableLeaf}
+                            classes={props.classes}
+                            prependComponent={props.prependComponent}    
+                            labelComponent={props.labelComponent}    
+                            disabledOperation={props.disabledOperation}
+                            onTreeNodeClick={props.onTreeNodeClick}  
+                            onContextMenu={props.onContextMenu}
+                            onMounted={props.onNodeMounted}
+                            onDragstart={props.onDragstart}
+                            onDragover={props.onDragover}
+                            onDragleave={props.onDragleave}
+                            onDrop={props.onDrop}
                         ></FileTreeNode>
                     )
             })

@@ -7,6 +7,7 @@ import FileTree from '@components/file-tree'
 import TabBar from '@components/tab-bar'
 import DraggleBar from '@components/draggle-bar'
 import MenuList from '@components/menu-list'
+import StatusTip from '@components/status-tip'
 import Tag from '@components/tag'
 import * as TopBarClasses from '@components/top-bar/interface'
 
@@ -21,6 +22,7 @@ export {
     TabBar,
     DraggleBar,
     MenuList,
+    StatusTip,
     Tag,
     TopBarClasses
 }
