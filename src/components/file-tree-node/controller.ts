@@ -74,7 +74,7 @@ class FileTreeNodeController extends baseController<FileTreeNodeProps>{
      * 左上角箭头点击
      */
     public handleArrowClick = () => {
-        const index = this.open.findIndex(item => item === this.props.item)
+        const index = this.open.findIndex(item => item[this.props.itemKey] === this.props.item[this.props.itemKey])
         if(index > -1){
             this.open.splice(index, 1)
         }else{
