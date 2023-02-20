@@ -35,7 +35,7 @@ function FileTree(props: PropsWithChildren<FileTreeProps>){
                             onTreeNodeClick={props.onTreeNodeClick}  
                             onContextMenu={props.onContextMenu}
                             onOpenChange={props.onNodeOpenChange}
-                            openShouldChange={props.nodeOpenShouldChange}
+                            shouldOpenChange={props.ShouldNodeOpenChange}
                             onMounted={props.onNodeMounted}
                             onDragstart={props.onDragstart}
                             onDragover={props.onDragover}
