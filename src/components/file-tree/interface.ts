@@ -119,7 +119,7 @@ export interface FileTreeProps extends ComponentProps{
     * @param isOpen 当前是否已经打开
     * @returns 
     */
-    ShouldNodeOpenChange?: (item, isOpen: boolean) => boolean | Promise<boolean>,
+    shouldNodeOpenChange?: (item, isOpen: boolean) => boolean | Promise<boolean>,
     /**
      * dragstart
      */
