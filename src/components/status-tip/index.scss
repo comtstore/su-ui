@@ -1,9 +1,12 @@
-.status-tip-item {
+.status-tip-item-container {
     @include flex(row, center, center);
-    margin-top: 2px;
-
-    .desc {
-        font-size: $fs5;
-        margin-left: 5px;
-    }
+    .status-tip-item {
+        @include flex(row, center, center);
+        margin-top: 2px;
+    
+        .desc {
+            font-size: $fs5;
+            margin-left: 5px;
+        }
+    }    
 }

@@ -46,7 +46,7 @@ class FileTreeNodeController extends baseController<FileTreeNodeProps>{
 
     @computed
     public get isDisabled(): boolean{
-        return this.disabled.includes(this.props.item) ||
+        return this.disabled.findIndex(item => item[this.props.itemKey] === this.props.item[this.props.itemKey]) !== -1 ||
         (!!this.props.disableLeaf && this.props.item[this.itemType] !== this.folderType)
     }
 
@@ -57,7 +57,7 @@ class FileTreeNodeController extends baseController<FileTreeNodeProps>{
 
     @computed
     public get isOpen () {
-        return this.open.includes(this.props.item)
+        return this.open.findIndex(item => item[this.props.itemKey] === this.props.item[this.props.itemKey]) !== -1
     }
 
     @computed
@@ -67,7 +67,7 @@ class FileTreeNodeController extends baseController<FileTreeNodeProps>{
 
     @computed
     public get isActive () {
-        return this.active.includes(this.props.item)
+        return this.active.findIndex(item => item[this.props.itemKey] === this.props.item[this.props.itemKey]) !== -1
     }
 
     /**

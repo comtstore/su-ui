@@ -19,7 +19,7 @@ export interface FileTreeProps extends ComponentProps{
     /**
      * key
      */
-    itemKey?: string
+    itemKey: string
     /**
      * 表示label名的字段名
      */

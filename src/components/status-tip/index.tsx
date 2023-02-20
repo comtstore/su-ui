@@ -26,28 +26,31 @@ function StatusTip(props: StatusTipProps){
                         setIsShowDesc(false)
                     }, itemConfig.duration)
                 }
-
             }
         }, [ props.status ])
 
-        return (<React.Fragment>
+        return (<div className={
+            cx('status-tip-item-container',
+                props.className, 
+                props.classes?.root
+            )}
+            style={{
+                ...props.style,
+                ...props.styles?.root
+            }}
+        >
             {
                 props.items.map((item: StatusTipItemConfig) => {
-                    return <>
-                    {
-                        props.status === item.name && !item.hidden ? (
-                            <div
-                                className={
+                    if(props.status === item.name && !item.hidden) {
+                        return <div
+                            className={
                                     cx('status-tip-item',
-                                       props.className, 
-                                       props.classes?.root)
-                                }
-                                key={item.name}
-                                style={{
-                                    ...props.style,
-                                    ...props.styles?.root
-                                }}
-                            >
+                                    props.classes?.item
+                                )
+                            }
+                            key={item.name}
+                            style={props.styles?.item}
+                        >
                                 <>{
                                     item.custom ? item.custom : <RoundIcon 
                                         width="14px" 
@@ -70,13 +73,12 @@ function StatusTip(props: StatusTipProps){
                                         }}
                                     >{ item.desc }</span> : null
                                 }</>
-                            </div>
-                        ) : null
+                        </div>
                     }
-                    </>
+                    return null
                 })
             }
-        </React.Fragment>)
+        </div>)
 }
 
 export default StatusTip

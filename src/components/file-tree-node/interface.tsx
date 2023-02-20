@@ -39,7 +39,7 @@ export interface FileTreeNodeProps extends ComponentProps{
      /**
      * item上的哪个字段作为key
      */
-    itemKey?: string,
+    itemKey: string,
     /**
      * 激活元素
     */
