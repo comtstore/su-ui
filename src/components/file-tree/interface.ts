@@ -108,6 +108,19 @@ export interface FileTreeProps extends ComponentProps{
      */
     onNodeMounted?: (item) => void,
     /**
+     * 节点被打开时触发的回调
+     * @param item 
+     * @returns 
+     */
+    onNodeOpenChange?: (item, isOpen: boolean) => void,
+    /**
+    * open属性是否要改变
+    * @param item 判断的item
+    * @param isOpen 当前是否已经打开
+    * @returns 
+    */
+    nodeOpenShouldChange?: (item, isOpen: boolean) => boolean,
+    /**
      * dragstart
      */
     onDragstart?: ({

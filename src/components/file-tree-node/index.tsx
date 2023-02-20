@@ -142,6 +142,8 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
                             disabled={controller.disabled}
                             disableLeaf={controller.disableLeaf}
                             classes={props.classes}
+                            onOpenChange={props.onOpenChange}
+                            openShouldChange={props.openShouldChange}
                             disabledOperation={props.disabledOperation}
                             prependComponent={props.prependComponent}    
                             labelComponent={props.labelComponent}   
