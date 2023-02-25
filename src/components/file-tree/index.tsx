@@ -28,6 +28,9 @@ function FileTree(props: PropsWithChildren<FileTreeProps>){
                             open={props.open}
                             disabled={props.disabled}
                             disableLeaf={props.disableLeaf}
+                            noIndent={props.noIndent}
+                            hideArrow={props.hideArrow}
+                            noPrepend={props.noPrepend}
                             classes={props.classes}
                             prependComponent={props.prependComponent}    
                             labelComponent={props.labelComponent}    

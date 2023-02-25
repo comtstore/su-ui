@@ -61,6 +61,18 @@ export interface FileTreeNodeProps extends ComponentProps{
      */
     disabledOperation?: Array<FileTreeOperartion>,
     /**
+     * 是否隐藏前缀
+     */
+    noPrepend?: boolean,
+    /**
+     * 是否显示箭头
+     */
+    hideArrow?: boolean,
+    /**
+     * 无锁进
+     */
+    noIndent?: boolean,
+    /**
      * classes
      */
     classes?: {

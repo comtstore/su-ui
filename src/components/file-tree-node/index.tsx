@@ -52,7 +52,8 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
         return (
             <div className="su-file-tree-node__content">
                 {
-                    props.item.children 
+                    !props.hideArrow
+                    && props.item.children
                     && props.item.children.length 
                     && props.item[controller.itemType] === controller.folderType
                     && (
@@ -72,15 +73,19 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
                         </div>
                     ) || null
                 }
-                <div className="su-file-tree-node__prepend">
-                    {
-                        (props.prependComponent && props.prependComponent?.({
-                            item: props.item,
-                            open: controller.open,
-                            active: controller.active
-                        })) || renderdefaultPrependComponent()
-                    }
-                </div>
+                {
+                    props.noPrepend ? null : (
+                        <div className="su-file-tree-node__prepend">
+                            {
+                                (props.prependComponent && props.prependComponent?.({
+                                    item: props.item,
+                                    open: controller.open,
+                                    active: controller.active
+                                })) || renderdefaultPrependComponent()
+                            }
+                        </div>
+                    )
+                }
                 <div className="su-file-tree-node__label">
                     {
                         (props.labelComponent && props.labelComponent?.({
@@ -113,7 +118,7 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
                 <div
                     className="su-file-tree-node__level"
                     style={{
-                    marginLeft: controller.level * 24 + 'px'
+                        marginLeft: props.noIndent ? '0px' : controller.level * 24 + 'px'
                     }}
                 />
                 { renderContent() }
@@ -141,6 +146,9 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
                             open={controller.open}
                             disabled={controller.disabled}
                             disableLeaf={controller.disableLeaf}
+                            noIndent={props.noIndent}
+                            hideArrow={props.hideArrow}
+                            noPrepend={props.noPrepend}
                             classes={props.classes}
                             onOpenChange={props.onOpenChange}
                             shouldOpenChange={props.shouldOpenChange}
