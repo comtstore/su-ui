@@ -65,6 +65,10 @@ export interface FileTreeProps extends ComponentProps{
          */
         node?: string,
         /**
+         * filetree根节点
+         */
+        root?: string,
+        /**
          * 被激活元素添加的样式
          */
         active?: string,

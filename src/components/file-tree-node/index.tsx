@@ -150,6 +150,7 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
                             hideArrow={props.hideArrow}
                             noPrepend={props.noPrepend}
                             classes={props.classes}
+                            styles={props.styles}
                             onOpenChange={props.onOpenChange}
                             shouldOpenChange={props.shouldOpenChange}
                             disabledOperation={props.disabledOperation}
@@ -172,11 +173,14 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
 
     return useObserver(() => (
         <div className={
-            cx("su-file-tree-node",
-            {
-                'su-file-tree-node__lighting': controller.lighting
-            })
-        }
+                cx("su-file-tree-node",
+                {
+                    'su-file-tree-node__lighting': controller.lighting
+                }, props.classes?.node)
+            }
+            style={
+                ...props.styles?.node
+            }
             onDragOver={controller.handleNodeDragover}
             onDragStart={controller.handleNodeDragstart}
             onDrop={controller.handleNodeDrop}
