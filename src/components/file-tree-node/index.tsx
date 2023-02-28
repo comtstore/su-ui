@@ -131,13 +131,13 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
             <>
             {
                 items.map((
-                    childFileNode,
+                    childFileNode, index
                 ) => {
                         if(childFileNode instanceof Array){
                             return renderChildrenNodes(childFileNode)
                         }
                         return (<FileTreeNode
-                            key={childFileNode[props.itemKey]}
+                            key={childFileNode[props.itemKey] ?? index}
                             itemKey={props.itemKey}
                             item={childFileNode}
                             level={controller.level + 1}

@@ -14,13 +14,13 @@ function FileTree(props: PropsWithChildren<FileTreeProps>){
     const getFileTreeNodeList = (items) => {
         return <>
             {
-                items.map((childFileNode) => {
+                items.map((childFileNode, index) => {
                     if(childFileNode instanceof Array){
                         return getFileTreeNodeList(childFileNode)
                     }
                     return (
                         <FileTreeNode
-                            key={childFileNode[props.itemKey]}
+                            key={childFileNode[props.itemKey] ?? index}
                             itemKey={props.itemKey}
                             item={childFileNode}
                             itemLabel={props.itemLabel}

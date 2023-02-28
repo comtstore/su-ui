@@ -4,6 +4,7 @@ import Logo from './components/logo'
 import Button from './components/button'
 import SnackBar from './components/snack-bar'
 import FileTree from './components/file-tree'
+import * as FilTreeInterface from './components/file-tree/interface'
 import TabBar from './components/tab-bar'
 import DraggleBar from './components/draggle-bar'
 import MenuList from './components/menu-list'
@@ -24,5 +25,6 @@ export {
     MenuList,
     StatusTip,
     Tag,
-    TopBarClasses
+    TopBarClasses,
+    FilTreeInterface
 }
