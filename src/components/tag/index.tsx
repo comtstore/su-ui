@@ -9,14 +9,21 @@ function Tag(props: TagProps){
         'su-tag',
         props.className,
         props.classes?.root
-    )}>
+    )}
+    style={{
+        ...props.style,
+        ...props.styles?.root
+    }}
+    >
         { props.icon?.() }
         { props.label ? (
             <span className={
                 cx('su-tag-name', 
                    props.classes?.label
                 )
-            }>{ props.label }</span>
+            }
+            style={props.styles?.label}
+            >{ props.label }</span>
         ) : null
         }
     </div>))
