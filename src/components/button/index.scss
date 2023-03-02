@@ -24,8 +24,15 @@
         border-style: solid;
         border-color: $color;
         background-color: $color;
+
         &:hover {
-            border-color: $themeColor;
+            &:not(.su-button-disabled) {
+                border-color: $themeColor;
+            }
+        }
+
+        &.su-button-disabled {
+            color: '';
         }
     }
 
@@ -63,15 +70,17 @@
         color: white;
 
         &:hover {
-            color: $tc5;
+            &:not(.su-button-disabled){
+                color: $tc5;
+            }
         }
 
         &.su-button-disabled{
             background-color: $disabledColor;
-
-            &:hover {
-                color: white;
-            }
         }
+    }
+
+    &.su-button-disabled {
+        cursor: pointer;
     }
 }
