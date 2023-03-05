@@ -48,6 +48,10 @@
         &.su-button-activate{
             background-color: rgba($themeColor, $hoverOpacity);
         }
+
+        &.su-button-disabled {
+            color: '';
+        }
     }
 
     &.su-button-icon {
@@ -81,6 +85,6 @@
     }
 
     &.su-button-disabled {
-        cursor: pointer;
+        cursor: not-allowed;
     }
 }
