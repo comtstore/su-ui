@@ -102,19 +102,17 @@ export interface FileTreeProps extends ComponentProps{
      * @param newActive 
      * @returns 
      */
-    onTreeNodeClick?: ({ item, e }) => void
+    onTreeNodeClick?: ({ item, e }) => void,
     /**
      * 文件夹箭头点击
      */
-    onArrawClick?: () => void
+    onArrowClick?: () => void,
     /**
-     * 节点点击
+     * 打开上下文菜单
+     * @param param0 
+     * @returns 
      */
-    onNodeClick?: () => void
-    /**
-     * 上下文菜单
-     */
-    onContextmenu?: () => void
+    onContextMenu?: ({ e, item }) => void,
     /**
      * node-contextmenu
      */
@@ -168,10 +166,4 @@ export interface FileTreeProps extends ComponentProps{
         item,
         instance
     }) => void,
-    /**
-     * 打开上下文菜单
-     * @param param0 
-     * @returns 
-     */
-    onContextMenu?: ({ e, item }) => void
 }

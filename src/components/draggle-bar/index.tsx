@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { DraggleBarProps } from './interface'
 import DraggleBarController from './controller'
 import './index.scss'
+import cx from 'classnames'
 import { useObserver } from 'mobx-react'
 
 function DraggleBar(props: DraggleBarProps){
@@ -18,7 +19,15 @@ function DraggleBar(props: DraggleBarProps){
 
     return useObserver(() => (
         <div
-          className="draggle-line"
+          className={
+            cx("draggle-line", 
+            props.classes?.root,
+            props.className)
+          }
+          style={{
+            ...props.style,
+            ...props.styles?.root
+          }}
           onMouseDown={controller.startDragging}
          >
             {

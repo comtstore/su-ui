@@ -1,7 +1,7 @@
 .draggle-line{
     height: 100%;
     cursor: ew-resize;
-    width: 10px;
+    width: 6px;
     overflow: hidden;
     @include flex(column,space-between,center);
     
