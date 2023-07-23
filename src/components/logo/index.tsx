@@ -11,6 +11,7 @@ class Logo extends React.Component<LogoProps>{
                     "logo-container",
                     this.props.className
                 )}
+                onClick={this.props.onClick}
             >
                 { this.props.src && <img src={this.props.src} alt="logo" />}
                 { this.props.custom }

@@ -1,14 +1,14 @@
 {
   "name": "@comtstore/su-ui",
-  "version": "1.0.8",
+  "version": "1.0.13",
   "description": "su ui package for react",
   "main": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "example": "cd example && npm run dev",
-    "dev": "npm run clean && node --experimental-json-modules ./node_modules/.bin/rollup --watch --config ./build/rollup.config.dev.js",
-    "build": "npm run clean && node --experimental-json-modules ./node_modules/.bin/rollup --config ./build/rollup.config.prod.js",
+    "dev": "npm run clean && node ./node_modules/.bin/rollup --watch --config ./build/rollup.config.dev.js",
+    "build": "npm run clean && node ./node_modules/.bin/rollup --config ./build/rollup.config.prod.js",
     "pub": "npm publish --access public",
     "clean": "rimraf ./dist"
   },
@@ -75,6 +75,7 @@
     "mobx": "^6.6.2",
     "mobx-react": "^7.5.3",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "uuid": "^9.0.0"
   }
 }

@@ -5,6 +5,7 @@ import Alert from '@mui/material/Alert';
 import { makeObservable, observable } from 'mobx'
 import { InfoConfig } from './interface';
 import ReactDOM from 'react-dom';
+import { v4 as uuid } from 'uuid'
 
 @observer
 class SnackBar extends React.Component {
@@ -57,40 +58,55 @@ class SnackBar extends React.Component {
   public infoList: InfoConfig[] = []
 
   public show = (showConfig: InfoConfig): () => void => {
-    showConfig.isOpen = showConfig.isOpen ?? true
-    this.infoList.push(showConfig)
-    const index: number = this.infoList.length - 1
+    // eslint-disable-next-line no-unused-vars
+    const handleClose = (id: string, closeSuccessFunc?: (index: number) => void) => {
+      const index = this.infoList.findIndex(info => info.id === id)
+      if(index > -1){
+        this.infoList[index].isOpen = false
+        this.infoList.splice(index, 1, { ...this.infoList[index] })
+        closeSuccessFunc?.(index)
+      }
+    }
 
-    const handleClose = () => {
-      showConfig.isOpen = false
-      this.infoList.splice(index, 1, { ...showConfig })
+    showConfig.isOpen = showConfig.isOpen ?? true
+    showConfig.id = showConfig.id ?? uuid()
+
+    if(showConfig.replaceId){
+      handleClose(showConfig.replaceId, (index) => {
+        this.infoList.splice(index, 1, showConfig)
+      })
+    } else {
+      this.infoList.push(showConfig)
     }
 
     if(showConfig.duration){
-      setTimeout(handleClose, showConfig.duration);
+      setTimeout(() => handleClose(showConfig.id!), showConfig.duration);
     }
 
-    return handleClose
+    return () => handleClose(showConfig.id!)
   }
 
   render(): React.ReactNode {
       return (
           <div className='snack-bar-group'>
           {
-              this.infoList.map((snackBarItem, index) => {
-                if(snackBarItem.isOpen){
-                  return (
-                      <div key={index} className='snack-bar-item'>
-                        <Alert className='snack-bar-item-alert' severity={snackBarItem.type}>
+              this.infoList.map((snackBarItem) => {
+                return <>
+                  {
+                    snackBarItem.isOpen ? 
+                    <div key={snackBarItem.id} className='snack-bar-item'>
+                      <Alert className='snack-bar-item-alert' severity={snackBarItem.type}>
+                        {
+                          typeof snackBarItem.content === 'string' ? 
                           <span className='snack-bar-item-alert-content' dangerouslySetInnerHTML={{
-                            __html:  snackBarItem.content
+                            __html: snackBarItem.content
                           }}></span>
-                        </Alert>
-                      </div>
-                  )
-                }else {
-                  return null
-                }
+                          : snackBarItem.content
+                        }
+                      </Alert>
+                    </div> : null
+                  }
+                </>
               })
           }
           </div>

@@ -16,7 +16,9 @@ function MenuList(props: MenuListProps){
         >
             {
                 props.items.map((menuListItem: MenuListItem, index: number) => {
-                    if(menuListItem.blank){
+                    if(menuListItem.hide?.()) {
+                        return null
+                    } else if(menuListItem.blank){
                         return (
                             <div
                               key={'blank-'+ index}
@@ -26,8 +28,6 @@ function MenuList(props: MenuListProps){
                             >  
                             </div>
                         )
-                    } else if(menuListItem.hide?.()) {
-                        return null
                     } else {
                         return (
                             <div
