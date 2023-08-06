@@ -47,7 +47,7 @@ function MenuList(props: MenuListProps){
                                 key={'item-' + index}
                                 onClick={() => controller.onItemClick(menuListItem)}
                             >
-                                <div className="su-menu-list-item-icon">{ props.iconComponent ? props.iconComponent(menuListItem.icon) : menuListItem.icon }</div>
+                                <div className="su-menu-list-item-icon">{ props.iconComponent ? props.iconComponent(menuListItem.icon, menuListItem) : menuListItem.icon }</div>
                                 <div className="su-menu-list-item-name">{ menuListItem[props.itemLabel ?? props.itemKey] }</div>
                             </div>
                         )

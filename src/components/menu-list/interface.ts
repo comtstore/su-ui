@@ -35,7 +35,7 @@ export interface MenuListProps extends ComponentProps{
     /**
      * icon组件的渲染器
      */
-    iconComponent?: (icon: TIcon) => any,
+    iconComponent?: (icon: TIcon, item?: MenuListItem) => any,
     /**
      * 项目被点击
      */
