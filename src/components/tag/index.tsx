@@ -14,6 +14,7 @@ function Tag(props: TagProps){
         ...props.style,
         ...props.styles?.root
     }}
+    onClick={props.onClick}
     >
         { props.icon?.() }
         { props.label ? (
