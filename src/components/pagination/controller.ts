@@ -17,7 +17,7 @@ class PaginationController extends baseController<PaginationProps>{
     }
 
     public turnToNextPage = (e) => {
-        if(this.props.page < Math.ceil(this.props.num / this.props.limit) - 1){
+        if(this.props.page < Math.ceil(this.props.num / this.props.limit)){
             this.changePage(e, this.props.page + 1)
         }
     }
