@@ -16,7 +16,7 @@ function MenuList(props: PaginationProps){
     }>
          <div className='su-pagination-main'>
             {
-                props.page > 0 ?
+                props.page > 1 ?
                 <div
                     className='su-pagination-main-page-left-arrow'
                     onClick={controller.turnToBeforePage}
