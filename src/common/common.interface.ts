@@ -34,5 +34,7 @@ export class baseController<T> {
         this.ref = ref
     }
 
-    
+    public updateProps = (props: T) => {
+        this.props = props
+    }
 }

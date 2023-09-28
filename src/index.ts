@@ -10,6 +10,7 @@ import DraggleBar from './components/draggle-bar'
 import MenuList from './components/menu-list'
 import StatusTip from './components/status-tip'
 import Tag from './components/tag'
+import Pagination from './components/pagination'
 import * as TopBarClasses from './components/top-bar/interface'
 
 // 组件组
@@ -25,6 +26,7 @@ export {
     MenuList,
     StatusTip,
     Tag,
+    Pagination,
     TopBarClasses,
     FilTreeInterface
 }
