@@ -1,4 +1,4 @@
-import { action, makeObservable } from 'mobx'
+import { action, makeObservable } from '@comtstore/mobx'
 import { baseController } from '../../common/common.interface'
 import { MenuListProps, MenuListItem } from "./interface"
 

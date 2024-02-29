@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from 'mobx'
+import { action, makeObservable, observable } from '@comtstore/mobx'
 import { baseController } from "../../common/common.interface";
 import { TabBarItemProps } from "./interface";
 

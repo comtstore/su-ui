@@ -1,6 +1,6 @@
 import { ButtonProps } from './interface'
 import { baseController} from '../../common/common.interface'
-import { action, makeObservable, observable } from 'mobx'
+import { action, makeObservable, observable } from '@comtstore/mobx'
 
 class ButtonContoller extends baseController<ButtonProps>{
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import './index.scss'
 import Alert from '@mui/material/Alert';
-import { makeObservable, observable } from 'mobx'
+import { makeObservable, observable } from '@comtstore/mobx'
 import { InfoConfig } from './interface';
 import ReactDOM from 'react-dom';
 import { v4 as uuid } from 'uuid'

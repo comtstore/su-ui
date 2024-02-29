@@ -1,6 +1,6 @@
 import { FileTreeOperartion, FileTreeProps } from "./interface";
 import { baseController} from '../../common/common.interface'
-import { makeObservable, observable } from 'mobx'
+import { makeObservable, observable } from '@comtstore/mobx'
 
 class FileTreeController extends baseController<FileTreeProps>{
     public constructor(props: FileTreeProps){
