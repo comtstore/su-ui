@@ -3,33 +3,27 @@ import { MenuListProps, MenuListItem } from "./interface"
 import cx from 'classnames'
 import './index.scss'
 import MenuListController from './controller'
+import { useObserver } from "mobx-react"
 
 function MenuList(props: MenuListProps){
-
     const [ controller ] = useState(() => new MenuListController(props))
-
-    return (
-        <div 
+    return useObserver(() =>  (
+        <div
             className={
                 cx('su-menu-list', props.className, props.classes?.root)
             }
         >
             {
                 props.items.map((menuListItem: MenuListItem, index: number) => {
-                    if(menuListItem.hide?.()) {
-                        return null
-                    } else if(menuListItem.blank){
-                        return (
-                            <div
-                              key={'blank-'+ index}
-                              className={
-                                cx('su-menu-list-blank')
-                              }
-                            >  
-                            </div>
-                        )
-                    } else {
-                        return (
+                    return <>
+                    { menuListItem.hide?.() ? null :
+                      (
+                        menuListItem.blank ? <div
+                            key={'blank-'+ index}
+                            className={
+                            cx('su-menu-list-blank')
+                            }
+                        ></div> : (
                             <div
                                 className={
                                     cx(
@@ -51,11 +45,13 @@ function MenuList(props: MenuListProps){
                                 <div className="su-menu-list-item-name">{ menuListItem[props.itemLabel ?? props.itemKey] }</div>
                             </div>
                         )
+                      )
                     }
+                    </>
                 })
             }
         </div>
-    )
+    ))
 }
 
 export default MenuList
