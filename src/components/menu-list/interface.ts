@@ -17,6 +17,10 @@ export interface MenuListItem {
 
 export interface MenuListProps extends ComponentProps{
     /**
+     * menuList的方向
+     */
+    direction: 'parallel' | 'vertical'
+    /**
      * 所有选项
      */
     items: Array<MenuListItem>,

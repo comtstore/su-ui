@@ -7,6 +7,13 @@
     @include scroll();
     @include blur();
 
+    &.vertical {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px !important;
+    }
+
     .su-menu-list-item {
         color: $tc3;
         width: 100%;
@@ -16,6 +23,10 @@
         box-sizing: border-box;
         border-radius: 5px;
         @include flex(row, flex-start, center);
+
+        &.vertical {
+            width: auto !important;
+        }
 
         &:hover {
             background-color: rgba($tc3, .1);
