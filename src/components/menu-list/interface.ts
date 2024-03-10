@@ -21,6 +21,10 @@ export interface MenuListProps extends ComponentProps{
      */
     direction: 'parallel' | 'vertical'
     /**
+     * 菜单项的尺寸，主要调整文字的尺寸，默认medium
+     */
+    size?: 'large' | 'medium' | 'small'
+    /**
      * 所有选项
      */
     items: Array<MenuListItem>,
