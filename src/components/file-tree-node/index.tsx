@@ -38,7 +38,7 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
                 )
             }
             {
-                props.item[controller.itemType] === 'md' &&
+                ['md', 'markdown'].includes(props.item[controller.itemType]) &&
                 (
                    <MarkdownIcon width={25} height={22} color={GlobalStyles.TextColor.tc3}>
                    </MarkdownIcon>
@@ -178,9 +178,9 @@ function FileTreeNode(props: PropsWithChildren<FileTreeNodeProps>) {
                     'su-file-tree-node__lighting': controller.lighting
                 }, props.classes?.node)
             }
-            style={
+            style={{
                 ...props.styles?.node
-            }
+            }}
             onDragOver={controller.handleNodeDragover}
             onDragStart={controller.handleNodeDragstart}
             onDrop={controller.handleNodeDrop}

@@ -1,6 +1,6 @@
 {
   "name": "@comtstore/su-ui",
-  "version": "1.0.28",
+  "version": "1.0.31",
   "description": "su ui package for react",
   "main": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",

@@ -15,10 +15,7 @@ class FileTreeController extends baseController<FileTreeProps>{
 
     public onTreeRootContextMenu = (e) => {
         if (this.props.disabledOperation?.includes(FileTreeOperartion.CONTEXT_MENU)) { return }
-        this.props.onContextMenu?.({
-            e,
-            item: null
-        })
+        this.props.onTreeRootContextMenu?.({ e })
     }
 
     public handleNodeDragover = (e) => {
