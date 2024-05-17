@@ -114,12 +114,6 @@ export interface FileTreeProps extends ComponentProps{
      */
     onContextMenu?: ({ e, item }) => void,
     /**
-     * 当监听到在root上打开上下文菜单
-     * @param param0 
-     * @returns 
-     */
-    onTreeRootContextMenu?: ({ e }) => void,
-    /**
      * node-contextmenu
      */
     onNodeContextmenu?: () => void,
