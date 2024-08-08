@@ -5,7 +5,7 @@ import { ComponentProps } from '../../common/common.interface'
 type TIcon = any
 
 export interface MenuListItem {
-    name?: string,
+    name?: string | (() => string),
     icon?: TIcon,
     hide?: () => boolean,
     append?: Component,

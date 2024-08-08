@@ -4,6 +4,7 @@ import cx from 'classnames'
 import './index.scss'
 import MenuListController from './controller'
 import { useObserver } from "mobx-react"
+import { getMenuListItemKey, getMenuListItemLabel } from './utils'
 
 function MenuList(props: MenuListProps){
     const [ controller ] = useState(() => new MenuListController(props))
@@ -37,7 +38,7 @@ function MenuList(props: MenuListProps){
                                     (props.active === menuListItem || 
                                     (
                                         props.active instanceof Array &&
-                                        props.active.findIndex(item => item[props.itemKey] === menuListItem[props.itemKey]) !== -1
+                                        props.active.findIndex(item => getMenuListItemKey(item, props) === getMenuListItemKey(menuListItem, props)) !== -1
                                     ))
                                 })
                             } 
@@ -50,7 +51,7 @@ function MenuList(props: MenuListProps){
                                     "su-menu-list-item-name": true,
                                     [props.size ?? 'medium']: true
                                 })
-                            }>{ menuListItem[props.itemLabel ?? props.itemKey] }</div>
+                            }>{ getMenuListItemLabel(menuListItem, props) }</div>
                         </div>
                     }
                 })
