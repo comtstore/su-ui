@@ -1,6 +1,6 @@
 .su-main-container {
     width: 100%;
-    padding-top: $topBarHeight;
+    padding-top: var(--su-topBarHeight);
     background-color: $tc6;
     min-height: 100vh;
     box-sizing: border-box;

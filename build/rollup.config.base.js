@@ -57,7 +57,10 @@ const babelConfig = {
     exclude: [
         'node_modules/**'
     ],
-    presets: ['@babel/preset-env', '@babel/preset-react', "@babel/preset-typescript"]
+    plugins: [
+       ['@babel/plugin-proposal-decorators', { "version": "legacy" }]
+    ],
+    presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescrip']
 }
 
 const basePlugins = [
@@ -74,13 +77,15 @@ const basePlugins = [
         dedupe: [ path.resolve(__dirname, '../src/assets/*') ]
     }),
     svgr(),
-    eslint(),
+    eslint({
+        exclude: [/virtual:/, /node_modules/]
+    }),
     typescript({
         check: false,
         exclude: [ 'node_modules/**', /.scss$/ ],
         include: 'src/**'
     }),
-    sass(sassConfig),
+    process.env.NODE_ENV === 'sb' ? () => {} : sass(sassConfig), // storybook下不需要sass插件
     commonjs(),
     babel(babelConfig),
     copy({
@@ -135,4 +140,5 @@ module.exports = {
     basePlugins,
     baseOutput,
     baseConfig,
+    globalInsertStyles
 }

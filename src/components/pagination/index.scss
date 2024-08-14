@@ -16,7 +16,7 @@
             margin-right: 3px;
 
             &:hover {
-                border-color: $themeColor;
+                border-color: var(--su-themeColor);
             }
         }
 
@@ -25,7 +25,7 @@
 
             &.selected {
                 color: white;
-                background-color: $themeColor;
+                background-color: var(--su-themeColor);
             }
         }
 

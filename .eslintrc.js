@@ -7,8 +7,9 @@ module.exports = {
     },
     extends: [
         "eslint:recommended",
-        "plugin:react/recommended", //应用推荐开启的规则
-        "plugin:@typescript-eslint/eslint-recommended"
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:storybook/recommended"
     ],
     // 添加规则集合
     plugins:[
@@ -29,5 +30,12 @@ module.exports = {
     },
     // 用于配置在某些文件中的规则检查
     overrides: [],
-    ignorePatterns: [ "example/**/*", "dist/**/*" ]
+    ignorePatterns: [ 
+        "example/**/*", 
+        "dist/**/*", 
+        "src/**/*.png",
+        "src/**/*.svg",
+        "src/**/*.mdx",
+        "src/**/*.css",
+        "src/**/*.scss" ]
 } 

@@ -11,7 +11,7 @@
 
     .header-body-container {
         width: 100%;
-        height: $topBarHeight;
+        height: var(--su-topBarHeight);
         background: white;
         flex-wrap: wrap;
         @include flex(row,space-between,center);

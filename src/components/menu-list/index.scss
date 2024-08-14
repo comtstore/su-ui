@@ -34,7 +34,7 @@
 
         &.su-menu-list-item__active {
             color: white;
-            background-color: $themeColor;
+            background-color: var(--su-themeColor);
         }
 
         .su-menu-list-item-icon {

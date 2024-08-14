@@ -30,7 +30,7 @@
 
         &:hover {
             &:not(.su-button-disabled) {
-                border-color: $themeColor;
+                border-color: var(--su-themeColor);
             }
         }
     }
@@ -42,12 +42,12 @@
         
         &:hover {
             &:not(.su-button-disabled) {
-                background-color: rgba($themeColor, $hoverOpacity);
+                background-color: rgba(var(--su-themeColor), var(--su-hoverOpacity));
             }
         }
 
         &.su-button-activate{
-            background-color: rgba($themeColor, $hoverOpacity);
+            background-color: rgba(var(--su-themeColor), var(--su-hoverOpacity));
         }
     }
 
@@ -59,17 +59,17 @@
 
         &:hover {
             &:not(.su-button-disabled) {
-                background-color: rgba($themeColor, $hoverOpacity);
+                background-color: rgba(var(--su-themeColor), var(--su-hoverOpacity));
             }
         }
 
         &.su-button-activate {
-            background-color: rgba($themeColor, $hoverOpacity);
+            background-color: rgba(var(--su-themeColor), var(--su-hoverOpacity));
         }
     }
 
     &.su-button-contained {
-        background-color: $themeColor;
+        background-color: var(--su-themeColor);
         color: white;
 
         &:hover {

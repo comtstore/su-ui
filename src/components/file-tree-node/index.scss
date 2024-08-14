@@ -45,6 +45,6 @@
 
     &.su-file-tree-node__lighting{
         background: rgba($tc6, 1);
-        border: .5px solid $themeColor;
+        border: .5px solid var(--su-themeColor);
     }
 }

@@ -8,6 +8,6 @@
     .line{
         flex:1;
         width:1px;
-        background-color: $themeColor;
+        background-color: var(--su-themeColor);
     }
 }
