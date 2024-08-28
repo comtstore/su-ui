@@ -1,0 +1,62 @@
+.su-pagination {
+    @include flex(row, space-between, center);
+
+    .su-pagination-main {
+        @include flex(row, center, center);
+
+        .su-pagination-main-element {
+            @include flex(row, center, center);
+            font-size: var(--su-fs4);
+            height: 25px;
+            padding: 3px 6px;
+            border-radius: 5px;
+            box-shadow: var(--su-bx5);
+            border: 1px solid transparent;
+            cursor: pointer;
+            margin-right: 3px;
+
+            &:hover {
+                border-color: var(--su-themeColor);
+            }
+        }
+
+        .su-pagination-main-page-num {
+            @extend .su-pagination-main-element;
+
+            &.selected {
+                color: white;
+                background-color: var(--su-themeColor);
+            }
+        }
+
+        .su-pagination-main-page-more {
+            @extend .su-pagination-main-element;
+        }
+
+        .su-pagination-main-page-arrow {
+            @extend .su-pagination-main-element;
+            div {
+                width: 0;
+                height: 0;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+            }
+        }
+
+        .su-pagination-main-page-left-arrow {
+            @extend .su-pagination-main-page-arrow;
+            div {
+                border-left: none;
+                border-right: 5px solid var(--su-tc3);
+            }
+        }
+
+        .su-pagination-main-page-right-arrow {
+            @extend .su-pagination-main-page-arrow;
+            div {
+                border-right: none;
+                border-left: 5px solid var(--su-tc3);
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.snack-bar-group {
+    width: 100%;
+    @include flex(column, center, center);
+    position: fixed;
+    top: 50px;
+    z-index: 1500;
+
+    .snack-bar-item{
+        margin-bottom: 10px;
+
+        .snack-bar-item-alert {
+            .MuiAlert-icon {
+                @include flex(row, center, center);
+            }
+        }
+    }
+}
+
+.snack-bar-item-alert-content {
+    ul {
+        margin: 0px;
+
+        li:only-child {
+           list-style: none;
+           margin-left: -40px;
+        }
+
+        li {
+            margin-left: -25px;
+        }
+    }
+}

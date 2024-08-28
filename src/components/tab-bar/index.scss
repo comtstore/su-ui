@@ -1,0 +1,15 @@
+$border: 1px solid white;
+$borderRadius: 5px;
+
+.su-tab-bar-container {
+    border: $border;
+    border-radius: $borderRadius;
+    width: 100%;
+    height: 45px;
+    @include scroll(auto, hidden);
+
+    .su-tab-bar-body {  
+        @include flex(row, flex-start, center);
+        height: 100%;
+    }
+}

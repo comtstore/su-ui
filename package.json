@@ -1,0 +1,86 @@
+{
+  "name": "@comtstore/su-ui",
+  "version": "1.0.34",
+  "description": "为comt wither前端项目设计的前端组件库",
+  "author": "solingjees",
+  "type": "module",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.cjs.js",
+      "require": "./dist/index.es.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "dist": "vite build",
+    "build": "npm run clean && npm run dist",
+    "preview": "vite preview",
+    "pub": "npm publish --access public",
+    "es": "npx eslint --fix",
+    "es:rule": "npx eslint --inspect-config",
+    "clean": "rimraf ./dist",
+    "sb": "storybook dev -p 6006",
+    "sb-build:prod": "storybook build --docs",
+    "sb-build:dev": "storybook dev --docs"
+  },
+  "homepage": "https://github.com/comtstore/su-ui",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "ui",
+    "react"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.24.7",
+    "@babel/plugin-transform-class-properties": "^7.25.4",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "@chromatic-com/storybook": "^1.7.0",
+    "@eslint/js": "^9.9.0",
+    "@storybook/addon-controls": "^8.2.9",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/react-vite": "^8.2.9",
+    "@storybook/test": "^8.2.9",
+    "@types/react": "^18.3.4",
+    "@vitejs/plugin-react": "^4.3.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "fs-extra": "^11.2.0",
+    "globals": "^15.9.0",
+    "prop-types": "^15.8.1",
+    "rimraf": "^6.0.1",
+    "sass": "1.77.6",
+    "storybook": "^8.2.9",
+    "typescript-eslint": "^8.2.0",
+    "vite": "^5.4.2",
+    "vite-plugin-commonjs": "^0.10.1",
+    "vite-plugin-dts": "^4.0.3",
+    "vite-plugin-static-copy": "^1.0.6",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^5.0.1"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "classnames": "^2.5.1",
+    "mobx": "^6.13.1",
+    "mobx-react": "^7.6.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "uuid": "^10.0.0"
+  }
+}

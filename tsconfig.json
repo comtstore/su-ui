@@ -1,0 +1,46 @@
+{
+    "include":[
+      "./src/**/*",
+      "src/assets/icons/svg.d.ts",
+      "assets"
+    ],
+    "exclude": [
+      "./build/*",
+      "./dist/*"
+    ],
+    "compilerOptions": {
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "baseUrl": "./",
+      "jsx": "react",
+      "target": "ESNext",
+      "module": "ESNext",
+      "experimentalDecorators": true,
+      "useDefineForClassFields": true,
+      "moduleResolution": "node",
+      "allowJs": false,
+      "checkJs": false,
+      "removeComments": false,
+      "noEmit": false,
+      "noEmitOnError": false,
+      "sourceMap": false,
+      "strict": false,
+      "alwaysStrict": false,
+      "noImplicitAny": false,
+      "noImplicitThis": false,
+      "strictNullChecks": true,
+      "strictBindCallApply": false,
+      "strictFunctionTypes": false,
+      "strictPropertyInitialization": false,
+      "noFallthroughCasesInSwitch": false,
+      "noImplicitReturns": false,
+      "noUnusedLocals": false,
+      "esModuleInterop": true,
+      "noUnusedParameters": true,
+      "allowUnreachableCode": false,
+      "allowSyntheticDefaultImports": true,
+      "paths": {
+        "@/*": ["./src/*"]
+      }
+  }
+}

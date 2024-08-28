@@ -1,0 +1,122 @@
+.su-button {
+    $borderRaduis: 3px;
+    @include flex(row, center, center);
+    border-radius:$borderRaduis;
+    padding: 5px 15px;
+    cursor: pointer;
+    border: none;
+    $hoverOpacity: 0.05;
+
+    .su-button__content {
+        @include flex(row, center, center);
+
+        &.hide-content {
+            opacity: 0;
+        }
+    }
+
+    &.su-button-small {
+        font-size: var(--#{$prefix}-fs-1);
+        line-height: var(--#{$prefix}-lh-1);
+
+        svg {
+            width: var(--#{$prefix}-fs-4);
+            height: var(--#{$prefix}-fs-4);
+        }
+    }
+
+    &.su-button-medium {
+        font-size: var(--#{$prefix}-fs-2);
+        line-height: var(--#{$prefix}-lh-2);
+
+        svg {
+            width: var(--#{$prefix}-fs-5);
+            height: var(--#{$prefix}-fs-5);
+        }
+    }
+
+    &.su-button-large {
+        font-size: var(--#{$prefix}-fs-3);
+        line-height: var(--#{$prefix}-lh-3);
+
+        svg {
+            width: var(--#{$prefix}-fs-6);
+            height: var(--#{$prefix}-fs-6);
+        }
+    }
+
+    &.su-button-outlined {
+        $color: var(--#{$prefix}-layout-bg-color);
+        border-width: 1px;
+        border-style: solid;
+        background-color: $color;
+        
+        &:not(.su-button-disabled) {
+            border-color: $color;
+        }
+
+        &:hover {
+            &:not(.su-button-disabled) {
+                border-color: var(--#{$prefix}-theme-color);
+            }
+        }
+    }
+
+    &.su-button-contained {
+        background-color: var(--#{$prefix}-theme-color);
+        color: var(--#{$prefix}-gray-1);
+
+        &:hover {
+            &:not(.su-button-disabled){
+                background-color: var(--#{$prefix}-theme-color__hover);
+            }
+        }
+    }
+
+    &.su-button-text {
+        background-color: transparent;
+        white-space: nowrap;
+        color: var(--#{$prefix}-first-text-color);
+        
+        &:hover {
+            &:not(.su-button-disabled) {
+                background-color: var(--#{$prefix}-theme-color);
+                color: var(--#{$prefix}-gray-1);
+            }
+        }
+
+        &.su-button-activate {
+            background-color: var(--#{$prefix}-theme-color);
+            color: var(--#{$prefix}-gray-1);
+        }
+    }
+
+    &.su-button-icon {
+        color: var(--#{$prefix}-first-text-color);
+        background-color: transparent;
+        border-radius: 100%;
+        padding: 8px;
+
+        &:hover {
+            &:not(.su-button-disabled) {
+                background-color: var(--#{$prefix}-theme-color__selected_bg);
+                color: var(--#{$prefix}-theme-color);
+            }
+        }
+
+        &.su-button-activate {
+            background-color: var(--#{$prefix}-theme-color__selected_bg);
+            color: var(--#{$prefix}-theme-color);
+        }
+    }
+
+    &.su-button-disabled {
+        cursor: not-allowed;
+        filter: grayscale(100%) opacity(40%);
+    }
+
+    &.su-button-block {
+        width: 100%;
+        border-radius: $borderRaduis;
+    }
+}

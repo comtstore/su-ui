@@ -1,0 +1,16 @@
+.su-tag {
+    border-radius: 5px;
+    box-shadow: var(--su-bx5);
+    padding: 3px;
+    min-height: 20px;
+    @include flex(row, center, center);
+
+    .su-tag-name {
+        margin-left: 5px;
+        font-size: var(--su-fs5);
+
+        &:first-child {
+            margin-left: 0px;
+        }
+    }
+}

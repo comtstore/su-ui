@@ -1,0 +1,16 @@
+import { ComponentProps } from "../../common/common.interface";
+
+export interface TagProps extends ComponentProps {
+  /**
+   * 图标
+   */
+  icon?: () => JSX.Element;
+  /**
+   * label
+   */
+  label?: string;
+  /**
+   * 点击tag
+   */
+  onClick?: (e) => void;
+}

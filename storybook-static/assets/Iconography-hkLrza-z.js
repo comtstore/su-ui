@@ -1,0 +1,4 @@
+import{j as n}from"./jsx-runtime-DEdD30eg.js";import{useMDXComponents as e}from"./index-CcnH5Kt0.js";import{ak as m,al as i,am as s}from"./index-C6XTCvZj.js";import{S as a}from"./markdown-CCwbs0GS.js";import"./index-RYns6xqu.js";import"./iframe-8OA-W6SQ.js";import"../sb-preview/runtime.js";import"./index-D16Yfzz8.js";import"./index-D-8MO0q_.js";import"./index-B23dhaOI.js";import"./index-DrFu-skq.js";function r(t){const o={h1:"h1",p:"p",...e(),...t.components};return n.jsxs(n.Fragment,{children:[n.jsx(m,{title:"图标组"}),`
+`,n.jsx(o.h1,{id:"图标组",children:"图标组"}),`
+`,n.jsx(o.p,{children:"项目中使用的SVG图标组。"}),`
+`,n.jsx(i,{children:n.jsx(s,{name:"markdown",children:n.jsx(a,{})})})]})}function w(t={}){const{wrapper:o}={...e(),...t.components};return o?n.jsx(o,{...t,children:n.jsx(r,{...t})}):r(t)}export{w as default};

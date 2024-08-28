@@ -1,0 +1,14 @@
+@mixin dataVars($attrName, $list){
+  @for $i from 1 through length($list) {
+    $attrValue: nth($list, $i);
+    --#{$prefix}-#{$attrName}-#{$i}: #{$attrValue};
+  }
+}
+
+@mixin systemColors($colorMap){
+  @each $colorName, $colors in $colorMap {
+    @include dataVars($colorName, $colors)
+  }
+}
+
+@import '../globals/index.scss', './colors/index.scss', './fonts.scss', './box-shadow.scss';

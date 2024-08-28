@@ -1,0 +1,90 @@
+$border: 1px solid white;
+$borderRadius: 5px;
+
+.su-tab-bar-item {
+    position: relative;
+    cursor: pointer;
+    background-color: rgba(var(--su-tc5), .6);
+    padding: 5px;
+    border-right: $border;
+    border-bottom: $border;
+    border-top: $border;
+    height: 100%;
+    width: fit-content;
+    @include flex(row, space-between, center);
+
+    &:hover {
+        background-color: rgba(var(--su-tc5), .4);
+    }
+
+    &.su-tab-bar-item__active {
+        background-color: white;
+        border-radius: $borderRadius;
+
+        .su-tab-bar-item-label {
+            .first {
+                font-weight: bold;
+            }
+
+            .second {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &.su-tab-bar-item__active-before {
+        border-top-right-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+    }
+
+    &.su-tab-bar-item__active-after {
+        border-top-left-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
+        border-left: $border;
+    }
+
+    &:last-child {
+        border-top-right-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+    }
+
+    &:first-child {
+        border-left: $border;
+        border-top-left-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
+    }
+
+    .su-tab-bar-item-label {
+        height: 100%;
+        width: 100%;
+        @include flex(row, center, center);
+
+        .icon {
+            @include flex(row, center, center);
+            margin-right: 5px;
+        }
+
+        .first {
+            white-space: nowrap;
+            color: var(--su-tc3);
+            letter-spacing: 1px;
+            font-size: var(--su-fs3);
+        }
+
+        .second {
+            white-space: nowrap;
+            margin-left: 10px;
+            letter-spacing: 1px;
+            font-size: var(--su-fs4);
+            color: var(--su-tc4);
+        }
+    }
+
+    .su-tab-bar-item-append {
+        position: absolute;
+        right: 5px;
+        color: var(--su-tc3);
+
+        @include flex(row, center, center);
+    }
+}

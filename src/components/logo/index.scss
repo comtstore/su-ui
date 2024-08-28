@@ -1,0 +1,17 @@
+.logo-container{
+    color: var(--su-textColor);
+    font-weight: bold;
+    font-size: var(--su-fs1);
+    overflow: hidden;
+    height: 100%;
+    max-height: 56px;
+    @include flex(row,center,center);
+    img{
+       width: 150px;
+       margin-left: -40px;
+    }
+    code{
+      margin-left: -35px;
+      font-weight: bold;
+    }
+}

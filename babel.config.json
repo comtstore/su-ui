@@ -1,0 +1,23 @@
+{
+    "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "chrome": 100
+            }
+          }
+        ],
+        [
+            "@babel/preset-react",
+            {
+              "runtime": "automatic"
+            }
+        ],
+        "@babel/preset-typescript"
+    ],
+    "plugins": [
+        [ "@babel/plugin-proposal-decorators", { "version": "2022-03" } ],
+        [ "@babel/plugin-transform-class-properties", { "loose": true } ]
+    ]
+}

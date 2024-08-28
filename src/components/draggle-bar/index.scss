@@ -1,0 +1,13 @@
+.draggle-line{
+    height: 100%;
+    cursor: ew-resize;
+    width: 6px;
+    overflow: hidden;
+    @include flex(column,space-between,center);
+    
+    .line{
+        flex:1;
+        width:1px;
+        background-color: var(--#{$prefix}-theme-color);
+    }
+}
